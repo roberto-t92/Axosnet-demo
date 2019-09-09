@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Proveedores";
+}
+
+<!-- Proveedores -->
+<div style="height:100px;"></div>
+<div class="row d-flex justify-content-center">
+    <!-- Form -->
+    <div class="col col-md-3">
+        <h3 class="row d-flex justify-content-center">Proveedores</h3>
+        <form>
+            <input type="hidden" id="proveedoresId" />
+            <div class="form-group row">
+                <div id="proveedoresPostSuccess" class="alert alert-primary alert-dismissible collapse" role="alert" style="width:100%;">Datos guardados.<a href="#" class="close" data-dismiss="alert">&times;</a></div>
+            </div>
+            <div class="form-group row">
+                <input id="proveedoresProveedor" type="text" placeholder="Proveedor" class="form-control form-control-sm" />
+            </div>
+            <div class="form-group row">
+                <input id="proveedoresMonto" type="text" placeholder="Monto" class="form-control form-control-sm" />
+            </div>
+            <div class="form-group row">
+                <input id="proveedoresMoneda" type="text" placeholder="Moneda" class="form-control form-control-sm" />
+            </div>
+            <div class="form-group row">
+                <input id="proveedoresFecha" type="text" placeholder="dd/mm/yyyy" class="form-control form-control-sm" />
+            </div>
+            <div class="form-group row">
+                <input id="proveedoresComentario" type="text" placeholder="Comentario" class="form-control form-control-sm" />
+            </div>
+            <div class="form-group row d-flex justify-content-center">
+                <button id="proveedoresGuardar" type="button" class="btn btn-secondary btn-sm" style="margin:0 15px;">Guardar</button>
+                <button id="proveedoresReset" type="button" class="btn btn-info btn-sm" style="margin:0 15px;"><i class="fas fa-sync-alt"></i></button>
+            </div>
+            <div class="form-group row d-flex justify-content-center">
+                <div id="loader" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            </div>
+        </form>
+    </div>
+    <!-- Table -->
+    <div class="col col-md-8">
+        <div class="pagination pagination-sm">
+            <div class="table-responsive">
+                <table id="proveedoresTabla" class="table table-sm table-bordered table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>IdProveedor</th>
+                            <th>Proveedor</th>
+                            <th>Monto</th>
+                            <th>Moneda</th>
+                            <th>Fecha</th>
+                            <th>Comentario</th>
+                            <th>Edit</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Error Interno</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="errorModalMsg">Error</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Confirmar Modal -->
+<div class="modal fade" id="proveedoresModal" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="proveedoresDeleteID" />
+                <p>Esta seguro que desea borrar este registro?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-danger" onclick="proveedoresModalDelete()">Si</button>
+                <button type="button" data-dismiss="modal" class="btn btn-primary">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/Proveedores.js" asp-append-version="true"></script>

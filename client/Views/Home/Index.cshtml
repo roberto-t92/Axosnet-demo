@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="ml16 display-4">Bienvenido</h1>
+    <p>App demo para Axosnet</p>
+</div>
+
+<script>
+    var textWrapper = document.querySelector('.ml16');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline({loop: true})
+      .add({
+        targets: '.ml16 .letter',
+        translateY: [-100,0],
+        easing: "easeOutExpo",
+        duration: 1400,
+        delay: (el, i) => 30 * i
+      }).add({
+        targets: '.ml16',
+        opacity: 0,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 3000
+      });
+</script>
