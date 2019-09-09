@@ -12,7 +12,11 @@ Tech:<br/>
 • Moment.js 2.2<br/>
 • DataTables.js 1.1<br/>
 
-• Puertos en uso IIS Express: 44352 para api y 44359 para client
+• Puertos en uso IIS Express: 44352 para api y 44359 para client<br/>
+
+# Build
+• Doble click en .sln<br/>
+• Configurar startup de ambos proyectos en .sln > Properties > Common Properties > Startup Project > Multiple Startup Projects > Action y Start en ambos
 
 # ConnectionString
 
@@ -20,7 +24,7 @@ Tech:<br/>
 
 # Generar base de datos 
 
-• Abrir consola de nuget packages<br/>
+• Abrir consola de Package Manager<br/>
 1) Seleccionar default project: 'api' y ejecutar<br/>
 ```
 PM> Add-Migration Init
@@ -29,8 +33,9 @@ PM> Update-Database
 ```
 2) Seleccionar default project: 'client' y ejecutar<br/>
 ```
+PM> Add-Migration Init
+
 PM> Update-Database
 ```
 
-# Build
-• Doble click en .sln
+
